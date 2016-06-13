@@ -40,15 +40,10 @@ impl Vector for Vec3f {
     fn zero() -> Vec3f { Vec3f { x: 0.0, y: 0.0, z: 0.0 } }    
 }
 impl Vec3f {
-    
     pub fn new(x: f64, y: f64, z: f64) -> Vec3f { Vec3f { x: x, y: y, z: z } } 
-    
     pub fn cross(&self, rhs: &Vec3f) -> Vec3f { Vec3f { x: self.y * rhs.z - self.z * rhs.y, y: self.z * rhs.x - self.x * rhs.z, z: self.x * rhs.y - self.y * rhs.z} }
-    
     pub fn norm(&mut self) -> Vec3f { *self = *self * (1.0 / (self.x * self.x + self.y * self.y + self.z * self.z).sqrt()); *self }
-    
     pub fn mult(&self, rhs: &Vec3f) -> Vec3f { Vec3f::new(self.x * rhs.x, self.y * rhs.y, self.z * rhs.z) }
-    
     pub fn dot(&self, rhs: Vec3f) -> f64 { self.mul(rhs) }
 }
 
@@ -58,11 +53,10 @@ struct Ray {
     pub d: Vec3f,    
 }
 impl Ray {
-    
     pub fn new(o: Vec3f, d: Vec3f) -> Ray { Ray { o: o, d: d } }
 }
-#[derive(PartialEq, Debug, Clone, Copy)]
 
+#[derive(PartialEq, Debug, Clone, Copy)]
 enum ReflT {
     DIFF,
     SPEC,
@@ -77,9 +71,8 @@ struct Sphere {
     pub refl: ReflT, 
 }
 impl Sphere {
-    
     pub fn new(rad: f64, p: Vec3f, e: Vec3f, c: Vec3f, refl: ReflT) -> Sphere { Sphere { rad: rad, pos: p, emit: e, color: c, refl: refl } }
-
+    
     pub fn intersect(&self, r: &Ray) -> f64 {
         let (op, eps) = (self.pos - r.o, 1.0e-4);
         let b = op.dot(r.d);
@@ -245,9 +238,7 @@ fn main() {
     for i in 0..color.len() {
         cache.push_str(&format!("{} {} {} ", to_i32(color[i].x), to_i32(color[i].y), to_i32(color[i].z)));
     }
-    // let log_path = ::std::path::Path::new("./log.dat");
-    // let mut log_file = ::std::fs::File::create(&log_path).ok().expect("Couldn't create file.");
-    // write!(log_file, "{:?}", *color).unwrap();
+
     write!(file,"{}", cache).unwrap();
     println!("Finished");
 }
