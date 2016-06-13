@@ -1,0 +1,17 @@
+[package]
+name = "threadpool"
+version = "0.1.0"
+authors = ["Mot Yu <mot.yu@outlook.com>"]
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# clippy = "*"
+
+[dev-dependencies]
+# clippy = "*"
+
+[[bin]]
+name = "demo"
+path = "./demo/main.rs"

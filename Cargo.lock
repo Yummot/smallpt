@@ -1,0 +1,25 @@
+[root]
+name = "smallpt"
+version = "0.1.0"
+dependencies = [
+ "rand 0.3.14 (registry+http://crates.mirrors.ustc.edu.cn/index)",
+ "threadpool 0.1.0",
+]
+
+[[package]]
+name = "libc"
+version = "0.2.12"
+source = "registry+http://crates.mirrors.ustc.edu.cn/index"
+
+[[package]]
+name = "rand"
+version = "0.3.14"
+source = "registry+http://crates.mirrors.ustc.edu.cn/index"
+dependencies = [
+ "libc 0.2.12 (registry+http://crates.mirrors.ustc.edu.cn/index)",
+]
+
+[[package]]
+name = "threadpool"
+version = "0.1.0"
+

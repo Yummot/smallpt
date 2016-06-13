@@ -1,0 +1,8 @@
+[package]
+name = "smallpt"
+version = "0.1.0"
+authors = ["Mot Yu <mot.yu@outlook.com>"]
+
+[dependencies]
+rand = "*"
+threadpool = { path = "./dependencies/threadpool" }
