@@ -1,5 +1,3 @@
-// #![feature(plugin)]
-// #![plugin(clippy)]
 #![allow(dead_code)]
 
 use std::sync::mpsc::{channel, Sender, Receiver};
